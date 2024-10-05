@@ -1,0 +1,13 @@
+# Ignore node_modules (installed in Docker container, not copied)
+node_modules
+
+# Ignore logs
+logs
+*.log
+
+# Ignore environment files (optional)
+.env
+
+# Ignore any build artifacts (if using a build system)
+dist
+build
