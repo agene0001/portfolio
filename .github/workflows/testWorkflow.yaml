@@ -19,16 +19,20 @@ jobs:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           export_default_credentials: true
+
       - name: Configure Docker to use Google Cloud credentials
         run: |
-            gcloud auth configure-docker us-central1-docker.pkg.dev
+          gcloud auth configure-docker us-central1-docker.pkg.dev
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
       - name: Build Docker image
         run: |
-          docker build -t us-central1-docker.pkg.dev/portfolio-437520/portfolio/my-app:latest .
-
-      - name: Push Docker image to Artifact Registry
-        run: |
-          docker push us-central1-docker.pkg.dev/portfolio-437520/portfolio/my-app:latest
+          docker buildx build \
+            --platform linux/amd64,linux/arm64 \
+            -t us-central1-docker.pkg.dev/portfolio-437520/portfolio/my-app:latest \
+            --push .  # --push option to directly push the image to the registry
 
       - name: Deploy to Cloud Run
         run: |
