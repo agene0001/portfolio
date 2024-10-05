@@ -1,20 +1,20 @@
-name: Deploy to GCP
+name: Build and Deploy to Cloud Run
 
 on:
   push:
     branches:
-      - main
+      - master  # Change this if you want to trigger on a different branch
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@v1
+      - name: Set up Google Cloud CLI
+        uses: google-github-actions/setup-gcloud@v0.2.0
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.GCP_SA_KEY }}
@@ -22,16 +22,16 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/my-app:$GITHUB_SHA .
+          docker build -t us-central1-docker.pkg.dev/portfolio-437520/portfolio/my-app:latest .
 
-      - name: Push Docker image
+      - name: Push Docker image to Artifact Registry
         run: |
-          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/my-app:$GITHUB_SHA
+          docker push us-central1-docker.pkg.dev/portfolio-437520/portfolio/my-app:latest
 
       - name: Deploy to Cloud Run
         run: |
           gcloud run deploy my-app \
-          --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/my-app:$GITHUB_SHA \
-          --platform managed \
-          --region us-central1 \
-          --allow-unauthenticated
+            --image us-central1-docker.pkg.dev/portfolio-437520/portfolio/my-app:latest \
+            --region us-central1 \
+            --platform managed \
+            --allow-unauthenticated  # Change this flag based on your authentication needs
