@@ -28,7 +28,7 @@ const projects = [
   {
     title: 'Flask Blog Website',
     description: 'Full-featured blogging platform with markdown support',
-    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80',
+    image: './blogPic.jpg',
     tags: ['Flask', 'SQLAlchemy', 'Bootstrap'],
     githubLink: `${config.profileLinks.github}/Scheduler`,
     liveLink: 'https://example.com'
