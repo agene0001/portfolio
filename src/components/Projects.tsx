@@ -12,7 +12,7 @@ const projects = [
   {
     title: 'Freelance Website',
     description: 'Professional portfolio and service booking platform for freelancers',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80',
+    image: './MVIImage.png',
     tags: ['Squarespace'],
     githubLink: `${config.profileLinks.github}`,
     liveLink: 'https://www.milesventsinchealthcare.com/'

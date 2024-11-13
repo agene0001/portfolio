@@ -1,4 +1,3 @@
-import React from 'react';
 
 const skills = {
   'Programming Languages': 90,
