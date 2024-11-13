@@ -1,29 +1,28 @@
-import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
-
+import config from '../config';
 const projects = [
   {
     title: 'Nutrition Tracker',
     description: 'A full-featured nutrition tracking platform with Amazon integration and AI-powered recommendations',
     image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&q=80',
     tags: ['React', 'Python', 'Machine Learning', 'AWS'],
-    githubLink: 'https://github.com',
+    githubLink: `${config.profileLinks.github}/workout-app`,
     liveLink: 'https://example.com'
   },
   {
     title: 'Freelance Website',
     description: 'Professional portfolio and service booking platform for freelancers',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80',
-    tags: ['Next.js', 'Tailwind', 'Firebase'],
-    githubLink: 'https://github.com',
-    liveLink: 'https://example.com'
+    tags: ['Squarespace'],
+    githubLink: `${config.profileLinks.github}`,
+    liveLink: 'https://www.milesventsinchealthcare.com/'
   },
   {
     title: 'LinkedIn Automation',
     description: 'AI-powered LinkedIn networking and content management tool',
     image: 'https://images.unsplash.com/photo-1611944212129-29977ae1398c?auto=format&fit=crop&q=80',
     tags: ['Python', 'Machine Learning', 'Selenium'],
-    githubLink: 'https://github.com',
+    githubLink: `${config.profileLinks.github}/job-applier-extension`,
     liveLink: 'https://example.com'
   },
   {
@@ -31,7 +30,7 @@ const projects = [
     description: 'Full-featured blogging platform with markdown support',
     image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80',
     tags: ['Flask', 'SQLAlchemy', 'Bootstrap'],
-    githubLink: 'https://github.com',
+    githubLink: `${config.profileLinks.github}/Scheduler`,
     liveLink: 'https://example.com'
   },
   {
@@ -46,7 +45,7 @@ const projects = [
     title: 'Class Scheduler',
     description: 'Automated class scheduling system with conflict resolution',
     image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80',
-    tags: ['React', 'Node.js', 'MongoDB'],
+    tags: ['React', 'Node.js', 'MongoDB', "in-progress"],
     githubLink: 'https://github.com',
     liveLink: 'https://example.com'
   }

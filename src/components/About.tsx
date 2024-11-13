@@ -75,7 +75,7 @@ export default function About() {
             Hire Me
           </a>
           <a
-            href="/cv.pdf"
+            href="/resume-latest.pdf"
             className="px-8 py-3 border border-indigo-400 text-indigo-400 rounded-lg hover:bg-indigo-950 transition-colors"
           >
             Download CV

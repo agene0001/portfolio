@@ -1,6 +1,6 @@
-import React from 'react';
 import { Github, Linkedin, Mail, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import config from "../config.ts";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +10,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <a href="#hero" className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-            JD
+            FA
           </a>
 
           <nav className="hidden md:flex space-x-8">
@@ -21,13 +21,13 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-indigo-400 transition-colors">
+            <a href={`${config.profileLinks.github}`} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-indigo-400 transition-colors">
               <Github className="w-5 h-5" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-indigo-400 transition-colors">
+            <a href={config.profileLinks.linkedin}target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-indigo-400 transition-colors">
               <Linkedin className="w-5 h-5" />
             </a>
-            <a href="mailto:contact@example.com" className="text-gray-300 hover:text-indigo-400 transition-colors">
+            <a href={config.profileLinks.email} className="text-gray-300 hover:text-indigo-400 transition-colors">
               <Mail className="w-5 h-5" />
             </a>
           </div>
