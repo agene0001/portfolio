@@ -27,9 +27,10 @@ COPY --from=build /app/dist /app/dist
 
 # Install a simple HTTP server to serve the static files
 RUN npm install -g serve
-
 # Expose port 3000
+ENV PORT=8080
+
 EXPOSE 8080
 
 # Start the HTTP server to serve the React app
-CMD ["serve", "-s", "dist", "-l", "tcp://0.0.0.0:8080"]
+CMD ["npx", "serve", "-s", "dist"]
