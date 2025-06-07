@@ -236,9 +236,7 @@ export default function About() {
             <div className={`mt-20 text-center ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '1s' }}>
               <div className="max-w-4xl mx-auto bg-gradient-to-r from-slate-800/50 to-slate-700/50 backdrop-blur-lg rounded-2xl p-8 border border-slate-700/50">
                 <blockquote className="text-slate-300 text-lg italic leading-relaxed">
-                  "I believe technology should solve real problems and create meaningful impact.
-                  Whether I'm building scalable web applications, analyzing complex datasets, or securing digital infrastructure,
-                  my goal is to craft solutions that are both technically excellent and genuinely useful."
+                  "My goal is to craft solutions that are both technically excellent and genuinely useful"
                 </blockquote>
                 <div className="mt-4 text-indigo-400 font-semibold">— Felix Agene</div>
               </div>
