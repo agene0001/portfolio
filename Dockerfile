@@ -1,36 +1,43 @@
-# Use Node.js official image as a base
-FROM node:18 AS build
+# Stage 1: Build the SvelteKit application
+FROM node:18-alpine AS build
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json into the container
+# Using alpine-linux-headers for sharp/libvips which is a common dependency
+RUN apk add --no-cache libc6-compat
+
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# Use 'npm ci' for cleaner, more reliable installs in CI/CD environments
+RUN npm ci
 
-# Copy the rest of the application files
 COPY . .
 
-# Build the React app for production
 RUN npm run build
 
-# Use the Node.js image to serve the app
-FROM node:18 AS serve
+# Stage 2: Create the final, smaller production image
+FROM node:18-alpine AS production
 
-# Set the working directory for serving the app
 WORKDIR /app
 
-# Copy the build folder from the previous step
-COPY --from=build /app/dist /app/dist
+# Using alpine-linux-headers for sharp/libvips which is a common dependency
+RUN apk add --no-cache libc6-compat
 
-# Install a simple HTTP server to serve the static files
-RUN npm install -g serve
+# Set NODE_ENV to production
+ENV NODE_ENV=production
+
+# Copy only the necessary files from the build stage
+# This includes the build output, the production node_modules, and package.json
+COPY --from=build /app/build ./build
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/package.json ./package.json
+
+# Expose the port the app will run on (default for adapter-node is 3000)
+# You can override this with the PORT environment variable
 # Expose port 3000
 ENV PORT=8080
 
 EXPOSE 8080
 
-# Start the HTTP server to serve the React app
-CMD ["npx", "serve", "-s", "dist"]
+# The correct command to start the Node server built by SvelteKit
+CMD [ "node", "build" ]

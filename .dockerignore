@@ -1,0 +1,11 @@
+# Ignore dependencies
+node_modules
+
+# Ignore build output
+dist
+build
+
+# Ignore other things
+.idea
+.vscode
+npm-debug.log
