@@ -1,6 +1,8 @@
 <script lang="ts">
 	// 1. Import icons from the Svelte version of the library
-	import { Github, Linkedin, Mail } from '@lucide/svelte';
+	import { Mail } from '@lucide/svelte';
+	import Github from '$lib/components/icons/GithubIcon.svelte';
+	import Linkedin from '$lib/components/icons/LinkedinIcon.svelte';
 
 	// 2. Import your configuration file (path might need adjustment)
 	import config from '../config';

@@ -4,9 +4,10 @@
 
 	// 2. Icon Imports (from lucide-svelte, not lucide-react)
 	import {
-		ExternalLink, Github, Code, Database, Brain, X,
+		ExternalLink, Code, Database, Brain, X,
 		ChevronLeft, ChevronRight, Play, Lightbulb, BookOpen, Users, Zap
 	} from '@lucide/svelte';
+	import Github from '$lib/components/icons/GithubIcon.svelte';
 
 	// --- DATA (Full project data is included here) ---
 	const projects = [

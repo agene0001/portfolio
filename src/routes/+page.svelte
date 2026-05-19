@@ -5,7 +5,9 @@
 	import Skills from '$lib/components/Skills.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import { onMount } from 'svelte';
-	import { ArrowDown, Github, Linkedin, Mail } from '@lucide/svelte';
+	import { ArrowDown, Mail } from '@lucide/svelte';
+	import Github from '$lib/components/icons/GithubIcon.svelte';
+	import Linkedin from '$lib/components/icons/LinkedinIcon.svelte';
 	import ParticleBackground from '$lib/components/ParticleBackground.svelte';
 
 	let isLoaded = false;

@@ -1,6 +1,8 @@
 <!-- src/lib/components/Header.svelte -->
 <script lang="ts">
-	import { Github, Linkedin, Mail, Menu, X } from '@lucide/svelte';
+	import { Mail, Menu, X } from '@lucide/svelte';
+	import Github from '$lib/components/icons/GithubIcon.svelte';
+	import Linkedin from '$lib/components/icons/LinkedinIcon.svelte';
 	import config from '$lib/config';
 
 	let isMenuOpen = false;
